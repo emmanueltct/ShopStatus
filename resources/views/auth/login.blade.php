@@ -5,7 +5,6 @@
     <div class="row justify-content-center">
         <div class="col-md-4">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -32,15 +31,23 @@
                                 @enderror
                         </div>
 
-                        <div class="form-group">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
+                        <div class="form-group row">
+                            <div class="col-md-5" style="padding-right:0px;">
+                                <div class="form-check" style="padding-left:20px;padding-top:10px;">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
                                         {{ __('Remember Me') }}
                                     </label>
+                                      
                                 </div>
+                            </div>
+                            <div class="col-md-7" style="padding:0px;margin:0;">
+                               @if (Route::has('password.request'))
+                                    <a class="btn btn-link" href="{{ route('password.request') }}" style="font-size:15px;font-family:Times New Roman;">
+                                        {{ __('Forgot Your Password?') }}
+                                    </a>
+                                @endif
                             </div>
                         </div>
                           <br>
@@ -52,29 +59,30 @@
                             </div> 
                         </div>
                          <br>
-                        <div class="form-group">
+                        <div class="form-group row">
                          <div class="col-md-12">
                              <a href="{{url('auth/google')}}" class="form-control">
                                     <strong style="color:blue">
                                         Login with Google
                                     </strong>
                                 </a>
-                                  @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
+                                 
                             </div>
                         </div>
-                      
-                        if you don't have an account click on this link to create new
-                        <a href="{{ route('register') }}" class="btn btn-sm btn-primary">Account</a>
-
-                        
                     </form>
                 </div>
             </div>
+            <b>
+             Don't have an account yet? <a href="{{ route('register') }}" style="color:blue;"> Register now</a></b>
         </div>
     </div>
 </div>
 @endsection
+
+<style type="text/css">
+    .form-group label{
+        color: black;
+        font-size:14px;
+        font-family:  Andale Mono ;
+    }
+</style>
