@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\ProfileUpdateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,5 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('auth/google', 'App\Http\Controllers\Auth\GoogleController@redirectToGoogle');
 Route::get('auth/google/callback', 'App\Http\Controllers\Auth\GoogleController@handleGoogleCallback');
+Route::get('/profile_update',[App\Http\Controllers\ProfileUpdateController::class, 'index'])->name('profile_update');
+Route::post('/profile_update',[App\Http\Controllers\ProfileUpdateController::class, 'SaveProfile'])->name('SaveProfile');
