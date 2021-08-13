@@ -25,4 +25,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('auth/google', 'App\Http\Controllers\Auth\GoogleController@redirectToGoogle');
 Route::get('auth/google/callback', 'App\Http\Controllers\Auth\GoogleController@handleGoogleCallback');
 Route::get('/profile_update',[App\Http\Controllers\ProfileUpdateController::class, 'index'])->name('profile_update');
-Route::post('/profile_update',[App\Http\Controllers\ProfileUpdateController::class, 'SaveProfile'])->name('SaveProfile');
+Route::POST('/profile_update',[App\Http\Controllers\ProfileUpdateController::class, 'SaveProfile'])->name('SaveProfile');
